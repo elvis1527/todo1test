@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+
+    <ion-title>Inicio Todo1</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-logo">
+    <img src="assets/img/todo1.png" alt="Todo1 logo">
+  </div>
+
+  <form #loginForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Usuario</ion-label>
+        <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+          required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p [hidden]="username.valid || submitted === false" class="ion-padding-start">
+          Usuario es requerido
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Contraseña</ion-label>
+        <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p [hidden]="password.valid || submitted === false" class="ion-padding-start">
+          Contraseña es requerida
+        </p>
+      </ion-text>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Iniciar Sesión</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+</ion-content>
